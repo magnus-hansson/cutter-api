@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoApi.Models;
@@ -24,10 +22,9 @@ namespace cutapi.Controllers
 
         // GET: api/TodoItems
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TodoItem>>> GetTodoItems()
+        public string GetTodoItems()
         {
-            var result = await _context.TodoItems.ToListAsync();
-            return result;
+            return "Hello cutter";
         }
 
         // GET: api/TodoItems/5

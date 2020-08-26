@@ -23,7 +23,7 @@ public class Cutter
         var lengthResult = new CutResult() { BaseLength = baseLength, WasteLength = 0 };
         foreach (var split in splits)
         {
-            if (split.Length + usedLength < baseLength)
+            if (split.Length + usedLength <= baseLength)
             {
                 usedLength += split.Length;
                 split.IsCalculated = true;

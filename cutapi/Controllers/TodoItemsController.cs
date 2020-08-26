@@ -21,7 +21,7 @@ namespace cutapi.Controllers
         [HttpGet]
         public string GetTodoItems()
         {
-            return "Hello cutter";
+            return "Hello cutterzx";
         }
 
         // POST: api/TodoItems

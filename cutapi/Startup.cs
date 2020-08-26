@@ -34,7 +34,6 @@ namespace cutapi
                            .AllowAnyMethod()
                            .AllowAnyHeader();
                 }));
-            services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
 
             services.AddControllers();
         }

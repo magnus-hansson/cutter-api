@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 public class Cutter
 {
-
     public List<CutResult> DoStuff(TodoItem item)
     {
         var splits = SplitLengths(item.CutLength);
@@ -40,7 +39,6 @@ public class Cutter
         var splitResult = new List<SplitLength>();
         foreach (var length in lengths)
         {
-
             for (int l = 0; l < length.NumberOfItems; l++)
             {
                 splitResult.Add(new SplitLength() { IsCalculated = false, Length = length.CutLength });

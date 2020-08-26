@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 namespace TodoApi.Models
 {
-    public class TodoContext : DbContext
+/*     public class TodoContext : DbContext
     {
         public TodoContext(DbContextOptions<TodoContext> options)
             : base(options)
@@ -10,12 +10,12 @@ namespace TodoApi.Models
         }
 
         public DbSet<TodoItem> TodoItems { get; set; }
-    }
+    } */
     public class TodoItem
     {
-        public long Id { get; set; }
+    /*     public long Id { get; set; }
         public string Name { get; set; }
-        public bool IsComplete { get; set; }
+        public bool IsComplete { get; set; } */
         public int BaseLength { get; set; }
         public List<Length> CutLength { get; set; }
     }
@@ -37,5 +37,10 @@ namespace TodoApi.Models
         public int BaseLength { get; set; }
         public int WasteLength { get; set; }
         public List<int> CutLengths { get; } = new List<int>();
+    }
+
+    public class Dummy
+    {
+        public string Message { get; set; }
     }
 }

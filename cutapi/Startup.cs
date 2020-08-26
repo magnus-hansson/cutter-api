@@ -28,7 +28,12 @@ namespace cutapi
         public void ConfigureServices(IServiceCollection services)
         {
 
-
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin()
+                           .AllowAnyMethod()
+                           .AllowAnyHeader();
+                }));
             services.AddDbContext<TodoContext>(opt => opt.UseInMemoryDatabase("TodoList"));
 
             services.AddControllers();
@@ -41,6 +46,7 @@ namespace cutapi
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("MyPolicy");
 
             app.UseHttpsRedirection();
 

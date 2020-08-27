@@ -1,9 +1,9 @@
-using TodoApi.Models;
+using CutApi.Models;
 using System.Collections.Generic;
 using System.Linq;
 public class Cutter
 {
-    public List<CutResult> DoStuff(TodoItem item)
+    public List<CutResult> Cut(CutItem item)
     {
         var splits = SplitLengths(item.CutLength);
         var cutresult = new List<CutResult>();

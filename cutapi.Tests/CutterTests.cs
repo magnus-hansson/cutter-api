@@ -1,13 +1,14 @@
 using Xunit;
 using Shouldly;
 using System.Collections.Generic;
-using TodoApi.Models;
-namespace cutapi.Tests
+using CutApi.Models;
+
+namespace CutApi.Tests
 {
     public class CutterTests
     {
         [Fact]
-        public void SplitLengthsShouldSplit()
+        public void SplitLengthsShouldReturnCorrectNumberOfLengths()
         {
             var lengths = new List<Length>();
             lengths.Add(new Length() { NumberOfItems = 4, CutLength = 85 });
@@ -19,7 +20,7 @@ namespace cutapi.Tests
         }
 
         [Fact]
-        public void ComputeShouldCompute()
+        public void ComputeShouldReturnCorrectWaste()
         {
             var baseLength = 420;
             var splitLengths = new List<SplitLength>{
@@ -33,15 +34,17 @@ namespace cutapi.Tests
             var res = cutter.Compute(baseLength, splitLengths);
 
             res.WasteLength.Equals(65);
-            res.CutLengths.Count.Equals(3);
+            res.CutLengths.Count.ShouldBe(3);
         }
 
         [Fact]
-        public void RunDoStuff()
+        public void RunCut()
         {
-            var item = new TodoItem { BaseLength = 420, CutLength = new List<Length> { new Length { NumberOfItems = 4, CutLength = 85 }, new Length { NumberOfItems = 2, CutLength = 45 } } };
+            var item = new CutItem { BaseLength = 420, CutLength = new List<Length> { new Length { NumberOfItems = 4, CutLength = 85 }, new Length { NumberOfItems = 2, CutLength = 45 } } };
             var cutter = new Cutter();
-            var res = cutter.DoStuff(item);
+            var cutResult = cutter.Cut(item);
+            cutResult.Count.ShouldBe(2);
+
         }
     }
 }
